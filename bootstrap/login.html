@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stitchy — Sign in</title>
+<link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="auth-wrap">
+
+  <!-- ===================== SIGN IN ===================== -->
+  <div class="auth-card" id="cardLogin">
+    <div class="d-flex align-items-center justify-content-center gap-2 mb-4">
+      <svg width="32" height="32" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="11" fill="#E8A317"/><path d="M12 24c-2.5-4 1-9 5-9s6.5 3 6 6" stroke="#5A2545" stroke-width="2.3" stroke-linecap="round"/><circle cx="22.5" cy="22.5" r="2.6" stroke="#5A2545" stroke-width="2.3"/></svg>
+      <span class="brand-name" style="font-family:var(--font-display);font-weight:700;font-size:1.3rem">Stitchy</span>
+    </div>
+
+    <h1 class="h5 text-center mb-1">Shop login</h1>
+    <p class="text-center fs-12 text-muted-2 mb-4">Use the username given during onboarding</p>
+
+    <form novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control" id="username" value="cutefashions.attingal" autocomplete="username">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" type="password" value="password" autocomplete="current-password">
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="keep" checked>
+          <label class="form-check-label fs-12" for="keep">Keep me signed in</label>
+        </div>
+        <button type="button" class="btn btn-link p-0 fs-12 fw-semibold" id="toForgot">Forgot password</button>
+      </div>
+      <a href="index.html" class="btn btn-primary w-100">Sign in</a>
+    </form>
+
+    <p class="text-center fs-12 text-muted-2 mt-3 mb-0">Shop accounts are created by the super admin.</p>
+  </div>
+
+  <!-- ===================== RESET ===================== -->
+  <div class="auth-card d-none" id="cardForgot">
+    <div class="d-flex align-items-center justify-content-center gap-2 mb-4">
+      <svg width="32" height="32" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="11" fill="#E8A317"/><path d="M12 24c-2.5-4 1-9 5-9s6.5 3 6 6" stroke="#5A2545" stroke-width="2.3" stroke-linecap="round"/><circle cx="22.5" cy="22.5" r="2.6" stroke="#5A2545" stroke-width="2.3"/></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:1.3rem">Stitchy</span>
+    </div>
+
+    <h1 class="h5 text-center mb-1">Reset your password</h1>
+    <p class="text-center fs-12 text-muted-2 mb-4">A reset link goes to the registered number</p>
+
+    <div class="mb-3">
+      <label class="form-label" for="ident">Username or registered number</label>
+      <input class="form-control" id="ident" placeholder="cutefashions.attingal">
+    </div>
+    <button class="btn btn-primary w-100">Send reset link</button>
+
+    <p class="note mt-3 mb-0">The link expires in 30 minutes. Passwords are stored encrypted — no one, including the super admin, can read an existing password.</p>
+
+    <p class="text-center mt-3 mb-0"><button type="button" class="btn btn-link p-0 fs-12 fw-semibold" id="toLogin">Back to login</button></p>
+  </div>
+
+</div>
+
+<script src="vendor/bootstrap.bundle.min.js"></script>
+<script>
+  var login = document.getElementById('cardLogin'),
+      forgot = document.getElementById('cardForgot');
+  document.getElementById('toForgot').addEventListener('click', function () {
+    login.classList.add('d-none'); forgot.classList.remove('d-none');
+  });
+  document.getElementById('toLogin').addEventListener('click', function () {
+    forgot.classList.add('d-none'); login.classList.remove('d-none');
+  });
+</script>
+</body>
+</html>

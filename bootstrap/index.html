@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stitchy — Order management for service shops</title>
+<meta name="description" content="Bootstrap 5 frontend template for the   tailoring platform, SOW-013/2026.">
+<link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ======================= SIDEBAR ======================= -->
+  <aside class="sidebar">
+    <div class="d-flex align-items-center gap-2 px-3 pt-3 pb-2">
+      <svg width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="11" fill="#E8A317"/><path d="M12 24c-2.5-4 1-9 5-9s6.5 3 6 6" stroke="#5A2545" stroke-width="2.3" stroke-linecap="round"/><circle cx="22.5" cy="22.5" r="2.6" stroke="#5A2545" stroke-width="2.3"/></svg>
+      <div>
+        <div class="brand-name">Stitchy</div>
+        <div class="brand-sub"> </div>
+      </div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <nav class="nav flex-column" id="sidebarNav" role="tablist" aria-label="Main">
+        <div class="nav-head">Daily work</div>
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#view-dashboard" type="button" role="tab"><i class="bi bi-grid-1x2"></i>Dashboard</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-orders" type="button" role="tab"><i class="bi bi-list-check"></i>Orders</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-neworder" type="button" role="tab"><i class="bi bi-plus-circle"></i>New order</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-orderdetail" type="button" role="tab"><i class="bi bi-card-text"></i>Order detail</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-billing" type="button" role="tab"><i class="bi bi-receipt"></i>Billing</button>
+
+        <div class="nav-head">Shop</div>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-products" type="button" role="tab"><i class="bi bi-box-seam"></i>Products &amp; services</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-categories" type="button" role="tab"><i class="bi bi-diagram-3"></i>Categories</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-customers" type="button" role="tab"><i class="bi bi-people"></i>Customers</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-finance" type="button" role="tab"><i class="bi bi-graph-up"></i>Income &amp; expenses</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-staff" type="button" role="tab"><i class="bi bi-person-badge"></i>Staff &amp; access</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-settings" type="button" role="tab"><i class="bi bi-gear"></i>Shop settings</button>
+
+        <div class="nav-head">Messaging</div>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-messages" type="button" role="tab"><i class="bi bi-whatsapp"></i>WhatsApp log</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-templates" type="button" role="tab"><i class="bi bi-chat-square-text"></i>Message templates</button>
+
+        <div class="nav-head">Super admin</div>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-shops" type="button" role="tab"><i class="bi bi-shop"></i>Shops</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-onboard" type="button" role="tab"><i class="bi bi-person-plus"></i>Onboard shop</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-branches" type="button" role="tab"><i class="bi bi-signpost-split"></i>Branches</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-plans" type="button" role="tab"><i class="bi bi-ui-checks-grid"></i>Plans &amp; renewals</button>
+
+        <div class="nav-head">Print views</div>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-slip" type="button" role="tab"><i class="bi bi-printer"></i>Cutting slip</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-customercopy" type="button" role="tab"><i class="bi bi-receipt-cutoff"></i>Customer copy</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-completion" type="button" role="tab"><i class="bi bi-clipboard-check"></i>Completion printout</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#view-invoice" type="button" role="tab"><i class="bi bi-file-earmark-text"></i>Invoice</button>
+
+        <div class="nav-head">Screens</div>
+        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i>Login &amp; reset</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-foot">Pro plan · renews 12 Sep 2026</div>
+  </aside>
+
+  <!-- ======================= MAIN ======================= -->
+  <div class="main">
+
+    <header class="topbar">
+      <div class="d-flex align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-outline-line btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-label="Open menu"><i class="bi bi-list"></i></button>
+          <select class="form-select form-select-sm w-auto" aria-label="Branch">
+            <option>Main branch — Attingal</option>
+            <option>Branch 2 — Varkala</option>
+            <option>All branches</option>
+          </select>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="role-pill d-none d-sm-inline">Shop admin</span>
+          <span class="avatar">JG</span>
+          <span class="fs-13 d-none d-sm-inline">Jinu</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content tab-content">
+
+      <!-- ================= DASHBOARD ================= -->
+      <section class="tab-pane fade show active" id="view-dashboard" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div>
+            <h1 class="page-title">Dashboard</h1>
+            <p class="fs-13 text-muted-2 mb-0">Wednesday, 2 September 2026 · Main branch</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line btn-sm"><i class="bi bi-file-earmark-spreadsheet me-1"></i>Export to Excel</button>
+            <button class="btn btn-accent" data-goto="view-neworder">+ New order</button>
+          </div>
+        </div>
+
+        <!-- customer search -->
+        <div class="row g-2 align-items-center mb-3">
+          <div class="col-12 col-md">
+            <div class="input-icon">
+              <i class="bi bi-search"></i>
+              <input class="form-control" placeholder="Search a customer by name or phone" aria-label="Search customer">
+            </div>
+          </div>
+          <div class="col-auto"><button class="btn btn-outline-line btn-sm" data-goto="view-customers">All customers</button></div>
+          <div class="col-auto"><button class="btn btn-outline-line btn-sm" data-goto="view-orders">Search orders</button></div>
+        </div>
+
+        <!-- headline stats -->
+        <div class="row g-3 mb-3">
+          <div class="col-6 col-xl-3"><div class="stat"><div class="key">Due today</div><div class="v num">6</div><div class="fs-12 text-muted-2">2 not started</div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat stat-accent"><div class="key">In progress</div><div class="v num">14</div><div class="fs-12 text-muted-2">across 2 branches</div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat"><div class="key">Ready for pickup</div><div class="v num">5</div><div class="fs-12 text-muted-2">₹9,400 to collect</div></div></div>
+          <div class="col-6 col-xl-3"><div class="stat stat-alert"><div class="key">Overdue</div><div class="v num">2</div><div class="fs-12 text-muted-2">oldest 3 days late</div></div></div>
+        </div>
+
+        <div class="row g-3">
+          <!-- calendar -->
+          <div class="col-12 col-xl-7">
+            <div class="card h-100">
+              <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <h2>Order load</h2>
+                <div class="nav seg" role="tablist">
+                  <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#cal-month" type="button" role="tab">Monthly</button>
+                  <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cal-week" type="button" role="tab">Weekly</button>
+                  <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cal-day" type="button" role="tab">Daily</button>
+                </div>
+              </div>
+              <div class="card-body">
+
+                <!-- week / month analytics -->
+                <div class="row g-2 mb-3">
+                  <div class="col-4"><div class="mini"><div class="key">This week</div><div class="d-flex align-items-baseline gap-1"><span class="v num">48</span><span class="fs-11 text-muted-2">orders</span></div></div></div>
+                  <div class="col-4"><div class="mini"><div class="key">This month</div><div class="d-flex align-items-baseline gap-1"><span class="v num">184</span><span class="fs-11 text-muted-2">orders</span></div></div></div>
+                  <div class="col-4"><div class="mini"><div class="key">Average per day</div><div class="d-flex align-items-baseline gap-1"><span class="v num">6.4</span><span class="fs-11 text-muted-2">orders</span></div></div></div>
+                </div>
+
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="cal-month" role="tabpanel">
+                    <div class="cal-scroll"><div class="cal-grid">
+                      <div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-dow">Sun</div>
+                      <div class="cal-day load-0"><span class="dn">31</span><span class="cn">—</span></div>
+                      <div class="cal-day load-1"><span class="dn">1</span><span class="cn">3</span></div>
+                      <div class="cal-day load-3"><span class="dn">2</span><span class="cn">9</span></div>
+                      <div class="cal-day load-2"><span class="dn">3</span><span class="cn">6</span></div>
+                      <div class="cal-day load-4"><span class="dn">4</span><span class="cn">12</span></div>
+                      <div class="cal-day load-full"><span class="dn">5</span><span class="cn">18</span></div>
+                      <div class="cal-day load-0"><span class="dn">6</span><span class="cn">—</span></div>
+                      <div class="cal-day load-2"><span class="dn">7</span><span class="cn">5</span></div>
+                      <div class="cal-day load-1"><span class="dn">8</span><span class="cn">2</span></div>
+                      <div class="cal-day load-3"><span class="dn">9</span><span class="cn">8</span></div>
+                      <div class="cal-day load-2"><span class="dn">10</span><span class="cn">6</span></div>
+                      <div class="cal-day load-4"><span class="dn">11</span><span class="cn">11</span></div>
+                      <div class="cal-day load-3"><span class="dn">12</span><span class="cn">9</span></div>
+                      <div class="cal-day load-0"><span class="dn">13</span><span class="cn">—</span></div>
+                    </div></div>
+                  </div>
+
+                  <div class="tab-pane fade cal-week" id="cal-week" role="tabpanel">
+                    <div class="cal-scroll"><div class="cal-grid">
+                      <div class="cal-dow">Mon 31</div><div class="cal-dow">Tue 1</div><div class="cal-dow">Wed 2</div><div class="cal-dow">Thu 3</div><div class="cal-dow">Fri 4</div><div class="cal-dow">Sat 5</div><div class="cal-dow">Sun 6</div>
+                      <div class="cal-day load-0"><span class="cn">—</span><span class="dn">closed</span></div>
+                      <div class="cal-day load-1"><span class="cn">3</span><span class="dn">0 late</span></div>
+                      <div class="cal-day load-3"><span class="cn">9</span><span class="dn">2 urgent</span></div>
+                      <div class="cal-day load-2"><span class="cn">6</span><span class="dn">1 urgent</span></div>
+                      <div class="cal-day load-4"><span class="cn">12</span><span class="dn">3 urgent</span></div>
+                      <div class="cal-day load-full"><span class="cn">18</span><span class="dn">limit hit</span></div>
+                      <div class="cal-day load-0"><span class="cn">—</span><span class="dn">closed</span></div>
+                    </div></div>
+                  </div>
+
+                  <div class="tab-pane fade" id="cal-day" role="tabpanel">
+                    <div class="lrow"><span class="mono fs-12" style="width:60px">09:00</span><div class="g"><div class="nm">Fathima N. — Churidar</div><div class="sb">ST-2029 · overdue from 30 Aug</div></div><span class="chip chip-overdue">Overdue</span></div>
+                    <div class="lrow"><span class="mono fs-12" style="width:60px">11:30</span><div class="g"><div class="nm">Anitha Raj — Blouse × 2</div><div class="sb">ST-2041 · trial fitting</div></div><span class="chip chip-progress">In progress</span></div>
+                    <div class="lrow"><span class="mono fs-12" style="width:60px">17:00</span><div class="g"><div class="nm">Sujith Menon — Shirt × 3</div><div class="sb">ST-2044 · pickup</div></div><span class="chip chip-ready">Ready</span></div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2 flex-wrap mt-3 fs-11 text-muted-2 cal-legend">
+                  <span>Order load</span>
+                  <i class="load-1"></i><i class="load-2"></i><i class="load-3"></i><i class="load-4"></i><i class="load-full"></i>
+                  <span>Full — daily acceptance limit reached <span class="chip chip-phase2">Phase 2</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- upcoming deliveries -->
+          <div class="col-12 col-xl-5">
+            <div class="card h-100">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Upcoming deliveries</h2><span class="badge-soft">Next 3 days</span>
+              </div>
+              <div class="card-body pt-1">
+                <div class="lrow"><div class="g"><div class="nm">Anitha Raj</div><div class="sb mono">ST-2041 · Blouse × 2 · today 5:00 PM</div></div><span class="chip chip-progress">In progress</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Sujith Menon</div><div class="sb mono">ST-2044 · Shirt × 3 · today</div></div><span class="chip chip-ready">Ready</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Fathima N.</div><div class="sb mono">ST-2029 · Churidar · 30 Aug</div></div><span class="chip chip-overdue">Overdue</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Rajesh Kumar</div><div class="sb mono">ST-2050 · Trouser × 2 · 4 Sep</div></div><span class="chip chip-pending">Pending</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Deepa S.</div><div class="sb mono">ST-2052 · Kurti · 4 Sep</div></div><span class="chip chip-urgent">Urgent</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- branch summary -->
+        <div class="card mt-3">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h2>Branch summary</h2><span class="badge-soft">This month</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Branch</th><th>Orders</th><th>Delivered</th><th>Pending</th><th class="text-end">Income</th><th class="text-end">Expenses</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Main branch — Attingal</strong></td><td class="num">184</td><td class="num">151</td><td class="num">33</td><td class="text-end num">₹2,46,800</td><td class="text-end num">₹68,200</td></tr>
+                <tr><td><strong>Branch 2 — Varkala</strong></td><td class="num">96</td><td class="num">78</td><td class="num">18</td><td class="text-end num">₹1,12,400</td><td class="text-end num">₹41,900</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ORDERS ================= -->
+      <section class="tab-pane fade" id="view-orders" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Orders</h1><p class="fs-13 text-muted-2 mb-0">280 orders · 51 open</p></div>
+          <button class="btn btn-accent" data-goto="view-neworder">+ New order</button>
+        </div>
+
+        <div class="row g-2 mb-3">
+          <div class="col-12 col-lg">
+            <div class="input-icon"><i class="bi bi-search"></i>
+              <input class="form-control" placeholder="Search customer name, phone, order number or product" aria-label="Search orders">
+            </div>
+          </div>
+          <div class="col-6 col-lg-auto"><select class="form-select"><option>All statuses</option><option>Pending</option><option>In progress</option><option>Ready</option><option>Delivered</option></select></div>
+          <div class="col-6 col-lg-auto"><select class="form-select"><option>All products</option><option>Blouse</option><option>Shirt</option><option>Churidar</option></select></div>
+          <div class="col-6 col-lg-auto"><input class="form-control" type="date" aria-label="Delivery date"></div>
+          <div class="col-6 col-lg-auto"><button class="btn btn-outline-line w-100"><i class="bi bi-sort-down me-1"></i>Priority</button></div>
+        </div>
+
+        <div class="card table-card">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Delivery</th><th>Taken by</th><th>Status</th><th class="text-end">Amount</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="mono fs-12">ST-2041</td>
+                  <td><strong>Anitha Raj</strong><div class="mono fs-11 text-muted-2">98470 22114</div></td>
+                  <td>Blouse × 2</td><td>2 Sep</td><td>Jinu</td>
+                  <td><span class="chip chip-progress">In progress</span></td>
+                  <td class="text-end num">₹1,200</td>
+                  <td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-orderdetail">Open</button></td>
+                </tr>
+                <tr>
+                  <td class="mono fs-12">ST-2044</td>
+                  <td><strong>Sujith Menon</strong><div class="mono fs-11 text-muted-2">99460 71802</div></td>
+                  <td>Shirt × 3</td><td>2 Sep</td><td>Jinu</td>
+                  <td><span class="chip chip-ready">Ready</span></td>
+                  <td class="text-end num">₹1,800</td>
+                  <td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-orderdetail">Open</button></td>
+                </tr>
+                <tr>
+                  <td class="mono fs-12">ST-2029</td>
+                  <td><strong>Fathima N.</strong><div class="mono fs-11 text-muted-2">70125 44390</div></td>
+                  <td>Churidar set</td><td>30 Aug</td><td>Jinu</td>
+                  <td><span class="chip chip-overdue">Overdue</span></td>
+                  <td class="text-end num">₹950</td>
+                  <td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-orderdetail">Open</button></td>
+                </tr>
+                <tr>
+                  <td class="mono fs-12">ST-2052</td>
+                  <td><strong>Deepa S.</strong><div class="mono fs-11 text-muted-2">85890 11245</div></td>
+                  <td>Kurti <span class="chip chip-urgent">Urgent</span></td><td>4 Sep</td><td>Jinu</td>
+                  <td><span class="chip chip-pending">Pending</span></td>
+                  <td class="text-end num">₹700</td>
+                  <td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-orderdetail">Open</button></td>
+                </tr>
+                <tr>
+                  <td class="mono fs-12">ST-2018</td>
+                  <td><strong>Rahul V.</strong><div class="mono fs-11 text-muted-2">94004 88120</div></td>
+                  <td>Trouser × 2, alteration</td><td>26 Aug</td><td>Jinu</td>
+                  <td><span class="chip chip-delivered">Delivered</span></td>
+                  <td class="text-end num">₹1,450</td>
+                  <td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-orderdetail">Open</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEW ORDER ================= -->
+      <section class="tab-pane fade" id="view-neworder" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">New order</h1><p class="fs-13 text-muted-2 mb-0">Order number <span class="mono">ST-2053</span> is assigned on save</p></div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line">Save as draft</button>
+            <button class="btn btn-primary"><i class="bi bi-whatsapp me-1"></i>Save &amp; open WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+
+            <!-- customer -->
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Customer</h2><button class="btn btn-outline-line btn-sm">Search existing</button>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <span class="avatar avatar-lg">DS</span>
+                  <div>
+                    <button class="btn btn-outline-line btn-sm"><i class="bi bi-upload me-1"></i>Upload photo</button>
+                    <div class="fs-11 text-muted-2 mt-1">JPG or PNG, up to 2 MB</div>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6"><label class="form-label">Name</label><input class="form-control" value="Deepa Suresh"></div>
+                  <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control mono" value="85890 11245"></div>
+                  <div class="col-md-6"><label class="form-label">WhatsApp number <span class="form-text">if different</span></label><input class="form-control mono" placeholder="Same as phone"></div>
+                  <div class="col-md-6"><label class="form-label">Date of birth <span class="form-text">optional</span></label><input class="form-control" type="date"></div>
+                  <div class="col-12"><label class="form-label">Address <span class="form-text">optional</span></label><input class="form-control" placeholder="House, place"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- items -->
+            <div class="card mb-3">
+              <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <h2>Items</h2>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-line btn-sm">+ Shop product</button>
+                  <button class="btn btn-outline-line btn-sm">+ Custom item</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Product</th><th>Qty</th><th>Rate</th><th class="text-end">Total</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Kurti — stitching</strong><div class="fs-11 text-muted-2">Ladies · Stitching</div></td><td class="num">1</td><td class="num">₹700</td><td class="text-end num">₹700</td><td class="text-end"><button class="btn btn-soft-danger btn-sm">Remove</button></td></tr>
+                    <tr><td><strong>Lining cloth</strong><div class="fs-11 text-muted-2">Custom item</div></td><td class="num">1</td><td class="num">₹120</td><td class="text-end num">₹120</td><td class="text-end"><button class="btn btn-soft-danger btn-sm">Remove</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-body border-top d-flex justify-content-between align-items-center">
+                <span class="fs-12 text-muted-2">Advance ₹300 received</span>
+                <span class="font-display fw-bold" style="font-size:1.0625rem">Total ₹820</span>
+              </div>
+            </div>
+
+            <!-- measurements -->
+            <div class="card">
+              <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <h2>Measurements</h2>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-line btn-sm">Copy from last order</button>
+                  <button class="btn btn-accent btn-sm" data-goto="view-slip"><i class="bi bi-printer me-1"></i>Print cutting slip</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="version-bar mb-3">
+                  <strong>Version 2</strong> · edited 2 Sep by Jinu · version 1 kept on file
+                  <button class="btn btn-outline-line btn-sm ms-auto">View version 1</button>
+                </div>
+                <div class="row g-2">
+                  <div class="col-6 col-md-3"><div class="meas"><label>Length</label><input value="38"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Shoulder</label><input value="14.5"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Chest</label><input value="36"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Waist</label><input value="32"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Hip</label><input value="38"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Sleeve</label><input value="18"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Armhole</label><input value="16"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Neck — front</label><input value="7"></div></div>
+                </div>
+                <p class="note mt-3 mb-0">Voice-entered measurements and buffered measurement presets are Phase 2 items <span class="chip chip-phase2">Phase 2</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+
+            <div class="card mb-3">
+              <div class="card-header"><h2>Delivery &amp; priority</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Delivery date</label><input class="form-control" type="date" value="2026-09-04"></div>
+                <div><label class="form-label">Priority</label>
+                  <select class="form-select"><option>Normal</option><option selected>Urgent</option><option>Low</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Reference photos</h2><span class="badge-soft">3 of 10</span>
+              </div>
+              <div class="card-body">
+                <div class="photo-strip">
+                  <div class="photo-wrap"><div class="photo">Design<br>front</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo-wrap"><div class="photo">Cloth</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo-wrap"><div class="photo">Sample<br>sleeve</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo photo-add">+ Add</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-header"><h2>Special instructions</h2></div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label class="form-label">Written note</label>
+                  <textarea class="form-control" rows="3">Sleeve to be kept 2 inch loose. Customer will bring matching cloth on 3rd.</textarea>
+                </div>
+                <label class="form-label">Voice note</label>
+                <div class="audio-note">
+                  <button class="rec-btn" aria-label="Record voice note"><i class="bi bi-mic-fill"></i></button>
+                  <div class="wave">
+                    <i style="height:30%"></i><i style="height:60%"></i><i style="height:85%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:25%"></i><i style="height:80%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:72%"></i><i style="height:44%"></i><i style="height:88%"></i><i style="height:30%"></i>
+                  </div>
+                  <span class="mono fs-12 text-muted-2">0:14</span>
+                </div>
+                <p class="fs-11 text-muted-2 mt-2 mb-0">Notes and voice recordings are deleted automatically 1 month after delivery.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>On save</h2></div>
+              <div class="card-body">
+                <div class="lrow">
+                  <div class="g"><div class="nm">Open WhatsApp with the confirmation</div><div class="sb">Opens a chat with 85890 11245 — you press send</div></div>
+                  <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Open WhatsApp"></div>
+                </div>
+                <div class="lrow">
+                  <div class="g"><div class="nm">Print customer copy</div><div class="sb">Printed at the counter</div></div>
+                  <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Print customer copy"></div>
+                </div>
+                <div class="bubble mt-3">Hello Deepa, your order <strong>ST-2053</strong> is received at  . Delivery on 04-09-2026. Total ₹820, advance ₹300.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ORDER DETAIL ================= -->
+      <section class="tab-pane fade" id="view-orderdetail" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div>
+            <div class="crumb">Orders / ST-2041</div>
+            <h1 class="page-title">Anitha Raj — Blouse × 2</h1>
+            <p class="fs-13 text-muted-2 mb-0">Created 28 Aug by Jinu · delivery 2 Sep 5:00 PM</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-line btn-sm" data-goto="view-slip">Cutting slip</button>
+            <button class="btn btn-outline-line btn-sm" data-goto="view-completion">Completion printout</button>
+            <button class="btn btn-wa btn-sm"><i class="bi bi-whatsapp me-1"></i>Open in WhatsApp</button>
+            <button class="btn btn-primary btn-sm">Mark as Ready</button>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Items &amp; measurements</h2><span class="chip chip-progress">In progress</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Product</th><th>Qty</th><th class="text-end">Total</th></tr></thead>
+                  <tbody><tr><td><strong>Blouse — stitching</strong><div class="fs-11 text-muted-2">Ladies · Stitching</div></td><td class="num">2</td><td class="text-end num">₹1,200</td></tr></tbody>
+                </table>
+              </div>
+              <div class="card-body border-top">
+                <div class="version-bar mb-3">
+                  <strong>Version 3</strong> · latest · edited 30 Aug by Jinu
+                </div>
+                <div class="row g-2">
+                  <div class="col-6 col-md-3"><div class="meas"><label>Length</label><input value="15"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Shoulder</label><input value="13.5"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Chest</label><input value="34"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Waist</label><input value="30"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Sleeve</label><input value="10"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Armhole</label><input value="15"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Neck — front</label><input value="6.5"></div></div>
+                  <div class="col-6 col-md-3"><div class="meas"><label>Neck — back</label><input value="7"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- version history -->
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Measurement versions</h2><span class="badge-soft">Old copies kept</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Version</th><th>Saved</th><th>By</th><th>Changed</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td class="mono fs-12">v3 <span class="chip chip-ready">Current</span></td><td>30 Aug 09:02</td><td>Jinu</td><td class="fs-12 text-muted-2">Waist 31 → 30</td><td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-slip">Print</button></td></tr>
+                    <tr><td class="mono fs-12">v2</td><td>29 Aug 16:40</td><td>Jinu</td><td class="fs-12 text-muted-2">Sleeve 9.5 → 10</td><td class="text-end"><button class="btn btn-outline-line btn-sm">View</button></td></tr>
+                    <tr><td class="mono fs-12">v1</td><td>28 Aug 11:20</td><td>Jinu</td><td class="fs-12 text-muted-2">First entry</td><td class="text-end"><button class="btn btn-outline-line btn-sm">View</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Photos</h2><span class="badge-soft">4 photos</span>
+              </div>
+              <div class="card-body">
+                <div class="photo-strip">
+                  <div class="photo-wrap"><div class="photo">Design</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo-wrap"><div class="photo">Cloth</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo-wrap"><div class="photo">Neck<br>pattern</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo-wrap"><div class="photo">Trial</div><div class="photo-acts"><button>Replace</button><button class="del">Delete</button></div></div>
+                  <div class="photo photo-add">+ Add</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>Instructions</h2></div>
+              <div class="card-body">
+                <p class="fs-13 mb-3">Piping in contrast colour on the neck. Customer wants hooks, not zip.</p>
+                <div class="audio-note">
+                  <button class="rec-btn play" aria-label="Play voice note"><i class="bi bi-play-fill"></i></button>
+                  <div class="wave">
+                    <i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:35%"></i><i style="height:60%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:75%"></i><i style="height:50%"></i>
+                  </div>
+                  <span class="mono fs-12 text-muted-2">0:22</span>
+                </div>
+                <p class="fs-11 text-muted-2 mt-2 mb-0">Auto-delete on 2 October 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+
+            <div class="card mb-3">
+              <div class="card-header"><h2>Status</h2></div>
+              <div class="card-body">
+                <div class="timeline">
+                  <div class="tl done"><div class="t">Pending</div><div class="m">28 Aug 11:20 · Jinu</div></div>
+                  <div class="tl now"><div class="t">In progress</div><div class="m">30 Aug 09:14 · Jinu</div></div>
+                  <div class="tl"><div class="t">Ready</div><div class="m">not yet</div></div>
+                  <div class="tl"><div class="t">Delivered</div><div class="m">not yet</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-header"><h2>Payment</h2></div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between fs-13 mb-1"><span>Order total</span><span class="num">₹1,200</span></div>
+                <div class="d-flex justify-content-between fs-13 text-muted-2 mb-2"><span>Advance received</span><span class="num">− ₹400</span></div>
+                <div class="d-flex justify-content-between border-top pt-2 font-display fw-bold" style="font-size:1rem"><span>Balance</span><span class="num">₹800</span></div>
+                <button class="btn btn-primary btn-sm w-100 mt-3" data-goto="view-billing">Generate bill</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Activity log</h2><span class="badge-soft">Admin only</span>
+              </div>
+              <div class="card-body pt-1">
+                <div class="lrow"><div class="g"><div class="nm">Status changed to In progress</div><div class="sb mono">Jinu · 30 Aug 09:14</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Measurement version 3 saved</div><div class="sb mono">Jinu · 30 Aug 09:02</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Confirmation opened in WhatsApp</div><div class="sb mono">Jinu · 28 Aug 11:21</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Order created</div><div class="sb mono">Jinu · 28 Aug 11:20</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= BILLING ================= -->
+      <section class="tab-pane fade" id="view-billing" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Billing</h1><p class="fs-13 text-muted-2 mb-0">Invoice numbers run separately for each shop</p></div>
+          <button class="btn btn-accent">+ New bill</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Recent invoices</h2><button class="btn btn-outline-line btn-sm">Export to Excel</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Invoice</th><th>Customer</th><th>Date</th><th>Payment</th><th class="text-end">Amount</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td class="mono fs-12">CF/26-27/0418</td><td>Sujith Menon</td><td>2 Sep</td><td><span class="chip chip-ready">Paid</span></td><td class="text-end num">₹1,800</td><td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-invoice">View</button></td></tr>
+                    <tr><td class="mono fs-12">CF/26-27/0417</td><td>Rahul V.</td><td>1 Sep</td><td><span class="chip chip-ready">Paid</span></td><td class="text-end num">₹1,450</td><td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-invoice">View</button></td></tr>
+                    <tr><td class="mono fs-12">CF/26-27/0416</td><td>Anitha Raj</td><td>1 Sep</td><td><span class="chip chip-pending">Advance only</span></td><td class="text-end num">₹1,200</td><td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-invoice">View</button></td></tr>
+                    <tr><td class="mono fs-12">CF/26-27/0415</td><td>Fathima N.</td><td>30 Aug</td><td><span class="chip chip-overdue">Unpaid</span></td><td class="text-end num">₹950</td><td class="text-end"><button class="btn btn-outline-line btn-sm" data-goto="view-invoice">View</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>New bill</h2><span class="mono fs-11 text-muted-2">CF/26-27/0419</span>
+              </div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Customer</label><input class="form-control" value="Anitha Raj — 98470 22114"></div>
+                <div class="mb-3"><label class="form-label">Add item</label>
+                  <select class="form-select"><option>Blouse — stitching · ₹600</option><option>Shirt — stitching · ₹550</option><option>Custom item…</option></select>
+                </div>
+                <div class="d-flex justify-content-between fs-12 mb-1"><span>Blouse — stitching × 2</span><span class="num">₹1,200</span></div>
+                <div class="d-flex justify-content-between fs-12 text-muted-2 mb-2"><span>Advance received</span><span class="num">− ₹400</span></div>
+                <div class="d-flex justify-content-between border-top pt-2 font-display fw-bold" style="font-size:1.0625rem"><span>Balance</span><span class="num">₹800</span></div>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <button class="btn btn-primary btn-sm" data-goto="view-invoice">Save &amp; print</button>
+                  <button class="btn btn-outline-line btn-sm">Download PDF</button>
+                  <button class="btn btn-wa btn-sm"><i class="bi bi-whatsapp me-1"></i>Open in WhatsApp</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PRODUCTS ================= -->
+      <section class="tab-pane fade" id="view-products" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Products &amp; services</h1><p class="fs-13 text-muted-2 mb-0">Rates and availability for this shop</p></div>
+          <button class="btn btn-accent">+ Add product</button>
+        </div>
+
+        <p class="note mb-3">Renaming this module and its categories is how the platform is reconfigured for another sector — repair, laundry, embroidery — under the Phase 2 scope.</p>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <h2>All products</h2>
+                <div class="input-icon" style="max-width:200px"><i class="bi bi-search"></i><input class="form-control form-control-sm" placeholder="Search" aria-label="Search products"></div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Product / service</th><th>Category</th><th class="text-end">Rate</th><th>Status</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Blouse — stitching</strong><div class="fs-11 text-muted-2">Ladies · Stitching</div></td><td>Ladies</td><td class="text-end num">₹600</td><td><span class="chip chip-ready">Active</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td><strong>Churidar set</strong><div class="fs-11 text-muted-2">Ladies · Stitching</div></td><td>Ladies</td><td class="text-end num">₹950</td><td><span class="chip chip-ready">Active</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td><strong>Shirt — stitching</strong><div class="fs-11 text-muted-2">Gents · Stitching</div></td><td>Gents</td><td class="text-end num">₹550</td><td><span class="chip chip-ready">Active</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td><strong>Trouser alteration</strong><div class="fs-11 text-muted-2">Gents · Alteration</div></td><td>Gents</td><td class="text-end num">₹180</td><td><span class="chip chip-pending">Disabled</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header"><h2>Add product</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Name</label><input class="form-control" placeholder="e.g. Kurti — stitching"></div>
+                <div class="row g-3 mb-1">
+                  <div class="col-6"><label class="form-label">Category</label><select class="form-select"><option>Ladies</option><option>Gents</option><option>Kids</option></select></div>
+                  <div class="col-6"><label class="form-label">Subcategory</label><select class="form-select"><option>Stitching</option><option>Alteration</option><option>Embroidery</option></select></div>
+                  <div class="col-6"><label class="form-label">Rate (₹)</label><input class="form-control num" placeholder="700"></div>
+                  <div class="col-6"><label class="form-label">Days to deliver</label><input class="form-control num" placeholder="5"></div>
+                </div>
+                <div class="lrow"><div class="g"><div class="nm">Available for orders</div><div class="sb">Turn off to hide without deleting</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Available"></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Needs measurements</div><div class="sb">Shows the measurement sheet on the order</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Needs measurements"></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Variants — size, length, type</div><div class="sb">Optional future enhancement</div></div><span class="chip chip-phase2">Phase 2</span></div>
+                <button class="btn btn-primary w-100 mt-3">Save product</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CATEGORIES ================= -->
+      <section class="tab-pane fade" id="view-categories" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Categories</h1><p class="fs-13 text-muted-2 mb-0">Two levels — category and subcategory</p></div>
+          <button class="btn btn-accent">+ Add category</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header"><h2>Category tree</h2></div>
+              <div class="card-body">
+                <ul class="tree">
+                  <li><strong>Ladies</strong><span class="badge-soft ms-auto">14 products</span><button class="btn btn-outline-line btn-sm">Edit</button><button class="btn btn-soft-danger btn-sm">Delete</button></li>
+                  <li class="child">Stitching<span class="ms-auto fs-11 text-muted-2">9</span></li>
+                  <li class="child">Alteration<span class="ms-auto fs-11 text-muted-2">3</span></li>
+                  <li class="child">Embroidery<span class="ms-auto fs-11 text-muted-2">2</span></li>
+                  <li><strong>Gents</strong><span class="badge-soft ms-auto">11 products</span><button class="btn btn-outline-line btn-sm">Edit</button><button class="btn btn-soft-danger btn-sm">Delete</button></li>
+                  <li class="child">Stitching<span class="ms-auto fs-11 text-muted-2">7</span></li>
+                  <li class="child">Alteration<span class="ms-auto fs-11 text-muted-2">4</span></li>
+                  <li><strong>Kids</strong><span class="badge-soft ms-auto">5 products</span><button class="btn btn-outline-line btn-sm">Edit</button><button class="btn btn-soft-danger btn-sm">Delete</button></li>
+                  <li class="child">Stitching<span class="ms-auto fs-11 text-muted-2">5</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header"><h2>Add category</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Category name</label><input class="form-control" placeholder="e.g. Uniforms"></div>
+                <div class="mb-3"><label class="form-label">Parent <span class="form-text">leave blank for a top-level category</span></label>
+                  <select class="form-select"><option>— None —</option><option>Ladies</option><option>Gents</option><option>Kids</option></select>
+                </div>
+                <button class="btn btn-primary w-100">Save category</button>
+                <p class="note mt-3 mb-0">A category can only be deleted when no product is using it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CUSTOMERS ================= -->
+      <section class="tab-pane fade" id="view-customers" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Customers</h1><p class="fs-13 text-muted-2 mb-0">1,402 saved · measurements carry over between orders</p></div>
+          <button class="btn btn-accent">+ Add customer</button>
+        </div>
+
+        <div class="input-icon mb-3"><i class="bi bi-search"></i><input class="form-control" placeholder="Search by name or phone" aria-label="Search customers"></div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header"><h2>All customers</h2></div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Customer</th><th>Phone</th><th>WhatsApp</th><th>Orders</th><th>Last order</th><th class="text-end">Value</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Anitha Raj</strong></td><td class="mono fs-12">98470 22114</td><td class="mono fs-12">98470 22114</td><td class="num">17</td><td>1 Sep 2026</td><td class="text-end num">₹18,400</td></tr>
+                    <tr><td><strong>Sujith Menon</strong></td><td class="mono fs-12">99460 71802</td><td class="mono fs-12">99460 71802</td><td class="num">9</td><td>2 Sep 2026</td><td class="text-end num">₹11,250</td></tr>
+                    <tr><td><strong>Fathima N.</strong></td><td class="mono fs-12">70125 44390</td><td class="mono fs-12">—</td><td class="num">4</td><td>30 Aug 2026</td><td class="text-end num">₹3,800</td></tr>
+                    <tr><td><strong>Deepa Suresh</strong></td><td class="mono fs-12">85890 11245</td><td class="mono fs-12">85890 11245</td><td class="num">2</td><td>2 Sep 2026</td><td class="text-end num">₹1,520</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Customer profile</h2><button class="btn btn-outline-line btn-sm">Edit</button>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <span class="avatar avatar-lg">AR</span>
+                  <div>
+                    <div class="font-display fw-bold" style="font-size:1.0625rem">Anitha Raj</div>
+                    <div class="mono fs-11 text-muted-2">98470 22114 · WhatsApp same</div>
+                    <div class="fs-11 text-muted-2">DOB 14 Mar · Attingal</div>
+                  </div>
+                </div>
+                <div class="lrow"><div class="g"><div class="nm">Saved measurements</div><div class="sb">Blouse (v3), Churidar (v1)</div></div><button class="btn btn-outline-line btn-sm">View</button></div>
+                <div class="lrow"><div class="g"><div class="nm">Order history</div><div class="sb">17 orders · last 1 Sep 2026</div></div><button class="btn btn-outline-line btn-sm" data-goto="view-orders">Open</button></div>
+                <div class="lrow"><div class="g"><div class="nm">Messages</div><div class="sb">Sent through WhatsApp</div></div><button class="btn btn-outline-line btn-sm" data-goto="view-messages">Open</button></div>
+                <button class="btn btn-accent w-100 mt-3" data-goto="view-neworder">New order for this customer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FINANCE ================= -->
+      <section class="tab-pane fade" id="view-finance" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Income &amp; expenses</h1><p class="fs-13 text-muted-2 mb-0">August 2026 · all branches</p></div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line"><i class="bi bi-file-earmark-spreadsheet me-1"></i>Export to Excel</button>
+            <button class="btn btn-accent">+ Add expense</button>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-4"><div class="stat"><div class="key">Income</div><div class="v num">₹3,59,200</div><div class="fs-12 text-muted-2">280 invoices</div></div></div>
+          <div class="col-6 col-md-4"><div class="stat"><div class="key">Expenses</div><div class="v num">₹1,10,100</div><div class="fs-12 text-muted-2">34 entries</div></div></div>
+          <div class="col-6 col-md-4"><div class="stat stat-accent"><div class="key">Net for month</div><div class="v num">₹2,49,100</div><div class="fs-12 text-muted-2">up 8% on July</div></div></div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <h2>Expense entries</h2>
+                <div class="d-flex gap-2">
+                  <select class="form-select form-select-sm w-auto"><option>August 2026</option><option>July 2026</option></select>
+                  <select class="form-select form-select-sm w-auto"><option>All branches</option><option>Attingal</option><option>Varkala</option></select>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Date</th><th>Head</th><th>Note</th><th>Branch</th><th class="text-end">Amount</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td>28 Aug</td><td>Rent</td><td>Shop rent</td><td>Attingal</td><td class="text-end num">₹22,000</td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td>24 Aug</td><td>Materials</td><td>Thread, lining, buttons</td><td>Attingal</td><td class="text-end num">₹8,450</td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td>20 Aug</td><td>Salary</td><td>Staff — August</td><td>Varkala</td><td class="text-end num">₹34,000</td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td>14 Aug</td><td>Electricity</td><td>KSEB bill</td><td>Attingal</td><td class="text-end num">₹3,180</td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card mb-3">
+              <div class="card-header"><h2>Where income comes from</h2></div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between fs-12 mb-1"><span>Ladies stitching</span><span class="num">₹1,84,600</span></div>
+                  <div class="progress" role="progressbar" aria-label="Ladies stitching share" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:52%"></div></div>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between fs-12 mb-1"><span>Gents stitching</span><span class="num">₹1,12,400</span></div>
+                  <div class="progress" role="progressbar" aria-label="Gents stitching share" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:31%"></div></div>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between fs-12 mb-1"><span>Alterations</span><span class="num">₹43,900</span></div>
+                  <div class="progress" role="progressbar" aria-label="Alterations share" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar gold" style="width:12%"></div></div>
+                </div>
+                <div>
+                  <div class="d-flex justify-content-between fs-12 mb-1"><span>Custom items</span><span class="num">₹18,300</span></div>
+                  <div class="progress" role="progressbar" aria-label="Custom items share" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar gold" style="width:5%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>Monthly summary</h2></div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Month</th><th class="text-end">Income</th><th class="text-end">Expenses</th><th class="text-end">Net</th></tr></thead>
+                  <tbody>
+                    <tr><td>Aug 2026</td><td class="text-end num">₹3,59,200</td><td class="text-end num">₹1,10,100</td><td class="text-end num">₹2,49,100</td></tr>
+                    <tr><td>Jul 2026</td><td class="text-end num">₹3,31,800</td><td class="text-end num">₹1,01,400</td><td class="text-end num">₹2,30,400</td></tr>
+                    <tr><td>Jun 2026</td><td class="text-end num">₹2,94,500</td><td class="text-end num">₹98,700</td><td class="text-end num">₹1,95,800</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STAFF ================= -->
+      <section class="tab-pane fade" id="view-staff" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Staff &amp; access</h1><p class="fs-13 text-muted-2 mb-0">One staff account per shop on the base plan</p></div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line">Reset password</button>
+            <button class="btn btn-accent">+ Add staff</button>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header"><h2>Accounts</h2></div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>User</th><th>Role</th><th>Branch</th><th>Last active</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Jinu</strong><div class="fs-11 text-muted-2">jinu</div></td><td><span class="chip chip-ready">Shop admin</span></td><td>All</td><td>Now</td><td class="text-end"><button class="btn btn-outline-line btn-sm">Edit</button></td></tr>
+                    <tr><td colspan="5" class="fs-12 text-muted-2">No staff account created yet — one is included in the plan.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header"><h2>What a staff account can do</h2></div>
+              <div class="card-body">
+                <div class="lrow"><div class="g"><div class="nm">Create and edit orders</div><div class="sb">Every order records who created it</div></div><span class="chip chip-ready">Allowed</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Generate bills</div></div><span class="chip chip-ready">Allowed</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Delete products</div></div><span class="chip chip-overdue">Blocked</span></div>
+                <div class="lrow"><div class="g"><div class="nm">View or edit income and expenses</div></div><span class="chip chip-overdue">Blocked</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Manage staff and settings</div></div><span class="chip chip-overdue">Blocked</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h2>Order log</h2><span class="badge-soft">Admin only</span>
+          </div>
+          <div class="card-body pt-1">
+            <div class="lrow"><div class="g"><div class="nm">ST-2041 status changed to In progress</div><div class="sb mono">Jinu · today 10:42</div></div></div>
+            <div class="lrow"><div class="g"><div class="nm">ST-2053 measurement edited — version 2 saved</div><div class="sb mono">Jinu · today 09:58</div></div></div>
+            <div class="lrow"><div class="g"><div class="nm">ST-2044 marked Ready</div><div class="sb mono">Jinu · today 09:15</div></div></div>
+            <div class="lrow"><div class="g"><div class="nm">Login from new device</div><div class="sb mono">Jinu · yesterday 18:30</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SETTINGS ================= -->
+      <section class="tab-pane fade" id="view-settings" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Shop settings</h1><p class="fs-13 text-muted-2 mb-0">Applies to   and its branches</p></div>
+          <button class="btn btn-primary">Save changes</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-6">
+            <div class="card mb-3">
+              <div class="card-header"><h2>Shop profile</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Shop name</label><input class="form-control" value=" "></div>
+                <div class="row g-3 mb-3">
+                  <div class="col-6"><label class="form-label">Phone</label><input class="form-control mono" value="0470 262 1180"></div>
+                  <div class="col-6"><label class="form-label">WhatsApp number</label><input class="form-control mono" value="94470 11890"></div>
+                </div>
+                <div class="mb-3"><label class="form-label">Address printed on bills</label><textarea class="form-control" rows="2"> , Main Road, Attingal, Thiruvananthapuram 695101</textarea></div>
+                <label class="form-label">Logo for printouts</label>
+                <div><button class="btn btn-outline-line btn-sm"><i class="bi bi-upload me-1"></i>Upload logo</button></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>Numbering</h2></div>
+              <div class="card-body">
+                <div class="row g-3 mb-2">
+                  <div class="col-6"><label class="form-label">Order number prefix</label><input class="form-control mono" value="ST-"></div>
+                  <div class="col-6"><label class="form-label">Invoice prefix</label><input class="form-control mono" value="CF/26-27/"></div>
+                </div>
+                <p class="fs-11 text-muted-2 mb-0">Each shop keeps its own running invoice number. Numbers are never reused.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card mb-3">
+              <div class="card-header"><h2>Order rules</h2></div>
+              <div class="card-body">
+                <div class="lrow"><div class="g"><div class="nm">Daily order acceptance limit</div><div class="sb">Stop new orders once a day is full <span class="chip chip-phase2">Phase 2</span></div></div><input class="form-control form-control-sm num" style="width:70px" value="18" aria-label="Daily limit"></div>
+                <div class="lrow"><div class="g"><div class="nm">Default delivery days</div><div class="sb">Used when a product has no default</div></div><input class="form-control form-control-sm num" style="width:70px" value="5" aria-label="Default delivery days"></div>
+                <div class="lrow"><div class="g"><div class="nm">Delete notes and voice after delivery</div><div class="sb">Fixed 1 month window</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Auto delete"></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Warn on overdue orders</div><div class="sb">Highlights on dashboard in red</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Overdue warning"></div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>Security</h2></div>
+              <div class="card-body">
+                <div class="lrow"><div class="g"><div class="nm">Password encryption</div><div class="sb">Always on — passwords are never stored in readable form</div></div><span class="chip chip-ready">On</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Role-based access control</div><div class="sb">Admin, staff and super admin</div></div><span class="chip chip-ready">On</span></div>
+                <div class="lrow"><div class="g"><div class="nm">Sign out other devices</div><div class="sb">Ends every session except this one</div></div><button class="btn btn-soft-danger btn-sm">Sign out all</button></div>
+                <div class="lrow"><div class="g"><div class="nm">Change password</div></div><button class="btn btn-outline-line btn-sm">Change</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= WHATSAPP LOG ================= -->
+      <section class="tab-pane fade" id="view-messages" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">WhatsApp log</h1><p class="fs-13 text-muted-2 mb-0">Messages prepared by the system and opened in WhatsApp</p></div>
+          <button class="btn btn-outline-line">Export to Excel</button>
+        </div>
+
+        <p class="note mb-3">Messages open in WhatsApp Web with the text filled in — you press send there. The app records that it was opened, not whether WhatsApp delivered it.</p>
+
+        <div class="row g-2 mb-3">
+          <div class="col-12 col-lg">
+            <div class="input-icon"><i class="bi bi-search"></i><input class="form-control" placeholder="Search by customer or order number" aria-label="Search messages"></div>
+          </div>
+          <div class="col-6 col-lg-auto"><select class="form-select"><option>All types</option><option>Order confirmation</option><option>Ready for pickup</option><option>Delivery reminder</option><option>Invoice</option></select></div>
+          <div class="col-6 col-lg-auto"><input class="form-control" type="date" aria-label="Date"></div>
+        </div>
+
+        <div class="card table-card">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Prepared</th><th>Customer</th><th>Number</th><th>Type</th><th>Order</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>today 09:15</td><td>Sujith Menon</td><td class="mono fs-12">99460 71802</td><td>Ready for pickup</td><td class="mono fs-12">ST-2044</td><td><span class="chip chip-wa">Opened</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Open again</button></td></tr>
+                <tr><td>today 08:40</td><td>Deepa Suresh</td><td class="mono fs-12">85890 11245</td><td>Order confirmation</td><td class="mono fs-12">ST-2053</td><td><span class="chip chip-wa">Opened</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Open again</button></td></tr>
+                <tr><td>1 Sep 17:02</td><td>Fathima N.</td><td class="mono fs-12">70125 44390</td><td>Delivery reminder</td><td class="mono fs-12">ST-2029</td><td><span class="chip chip-pending">Not opened</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Open</button></td></tr>
+                <tr><td>1 Sep 12:20</td><td>Rahul V.</td><td class="mono fs-12">94004 88120</td><td>Invoice</td><td class="mono fs-12">ST-2018</td><td><span class="chip chip-wa">Opened</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Open again</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TEMPLATES ================= -->
+      <section class="tab-pane fade" id="view-templates" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Message templates</h1><p class="fs-13 text-muted-2 mb-0">Filled in automatically when an order changes state</p></div>
+          <button class="btn btn-primary">Save templates</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Order confirmation</h2>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Confirmation on"></div>
+              </div>
+              <div class="card-body">
+                <textarea class="form-control" rows="3">Hello {customer_name}, your order {order_no} is received at {shop_name}. Delivery on {delivery_date}. Total ₹{total}, advance ₹{advance}.</textarea>
+                <div class="bubble mt-3">Hello Deepa, your order <strong>ST-2053</strong> is received at  . Delivery on 04-09-2026. Total ₹820, advance ₹300.</div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Ready for pickup</h2>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Ready on"></div>
+              </div>
+              <div class="card-body">
+                <textarea class="form-control" rows="3">Hello {customer_name}, order {order_no} is ready at {shop_name}. Balance ₹{balance}. Shop open 9 AM to 8 PM.</textarea>
+                <div class="bubble mt-3">Hello Sujith, order <strong>ST-2044</strong> is ready at  . Balance ₹1,300. Shop open 9 AM to 8 PM.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between">
+                <h2>Delivery reminder</h2>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" aria-label="Reminder off"></div>
+              </div>
+              <div class="card-body">
+                <textarea class="form-control" rows="2">Reminder: order {order_no} is due for pickup on {delivery_date}.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header"><h2>Available fields</h2></div>
+              <div class="card-body">
+                <div class="lrow"><div class="g"><div class="nm mono">{customer_name}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{order_no}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{shop_name}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{delivery_date}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{total}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{advance}</div></div></div>
+                <div class="lrow"><div class="g"><div class="nm mono">{balance}</div></div></div>
+                <p class="note mt-3 mb-0">The shop's own WhatsApp account sends the message, so there is no per-message charge and no limit inside the app.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SHOPS ================= -->
+      <section class="tab-pane fade" id="view-shops" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Shops</h1><p class="fs-13 text-muted-2 mb-0">Super admin view · 3 shops on the platform</p></div>
+          <button class="btn btn-accent" data-goto="view-onboard">+ Onboard shop</button>
+        </div>
+
+        <div class="card table-card mb-3">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Shop</th><th>Sector</th><th>Branches</th><th>Plan</th><th class="text-end">Income this month</th><th>Valid until</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><strong> </strong><div class="fs-11 text-muted-2">Attingal</div></td><td>Tailoring</td><td class="num">2</td><td>Pro</td><td class="text-end num">₹3,59,200</td><td>12 Sep 2026</td><td><span class="chip chip-pending">Renews soon</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Manage</button></td></tr>
+                <tr><td><strong>City Mobile Care</strong><div class="fs-11 text-muted-2">Kazhakoottam</div></td><td>Mobile repair</td><td class="num">1</td><td>Basic</td><td class="text-end num">₹1,48,500</td><td>3 Mar 2027</td><td><span class="chip chip-ready">Active</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Manage</button></td></tr>
+                <tr><td><strong>Fresh Fold Laundry</strong><div class="fs-11 text-muted-2">Varkala</div></td><td>Laundry</td><td class="num">1</td><td>Basic</td><td class="text-end num">₹62,300</td><td>28 Aug 2026</td><td><span class="chip chip-overdue">Expired</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Manage</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <h2>Shop-wise financial summary</h2>
+            <div class="d-flex gap-2">
+              <select class="form-select form-select-sm w-auto"><option>August 2026</option><option>July 2026</option></select>
+              <button class="btn btn-outline-line btn-sm">Export to Excel</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Shop</th><th>Orders</th><th class="text-end">Income</th><th class="text-end">Expenses</th><th class="text-end">Net</th></tr></thead>
+              <tbody>
+                <tr><td><strong> </strong><div class="fs-11 text-muted-2">2 branches</div></td><td class="num">280</td><td class="text-end num">₹3,59,200</td><td class="text-end num">₹1,10,100</td><td class="text-end num">₹2,49,100</td></tr>
+                <tr><td><strong>City Mobile Care</strong><div class="fs-11 text-muted-2">1 branch</div></td><td class="num">141</td><td class="text-end num">₹1,84,600</td><td class="text-end num">₹62,400</td><td class="text-end num">₹1,22,200</td></tr>
+                <tr><td><strong>Fresh Fold Laundry</strong><div class="fs-11 text-muted-2">1 branch</div></td><td class="num">96</td><td class="text-end num">₹74,800</td><td class="text-end num">₹31,500</td><td class="text-end num">₹43,300</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ONBOARD ================= -->
+      <section class="tab-pane fade" id="view-onboard" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div>
+            <div class="crumb">Super admin / Shops</div>
+            <h1 class="page-title">Onboard a shop</h1>
+            <p class="fs-13 text-muted-2 mb-0">Creates the shop, its admin login and the first branch</p>
+          </div>
+          <button class="btn btn-primary">Create shop</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card mb-3">
+              <div class="card-header"><h2>Shop details</h2></div>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label class="form-label">Shop name</label><input class="form-control" placeholder="e.g. City Mobile Care"></div>
+                  <div class="col-md-6"><label class="form-label">Sector</label>
+                    <select class="form-select">
+                      <option>Tailoring</option><option>Mobile repair</option><option>Electronics repair</option>
+                      <option>Shoe repair</option><option>Watch repair</option><option>Laundry</option>
+                      <option>Embroidery</option><option>Uniform services</option><option>Alteration</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6"><label class="form-label">Owner name</label><input class="form-control" placeholder="Full name"></div>
+                  <div class="col-md-6"><label class="form-label">Contact number</label><input class="form-control mono" placeholder="9XXXX XXXXX"></div>
+                  <div class="col-md-6"><label class="form-label">WhatsApp number</label><input class="form-control mono" placeholder="9XXXX XXXXX"></div>
+                  <div class="col-12"><label class="form-label">Address</label><textarea class="form-control" rows="2" placeholder="Shop address"></textarea></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>First branch</h2></div>
+              <div class="card-body">
+                <div class="row g-3 mb-2">
+                  <div class="col-md-6"><label class="form-label">Branch name</label><input class="form-control" placeholder="Main branch"></div>
+                  <div class="col-md-6"><label class="form-label">Place</label><input class="form-control" placeholder="Kazhakoottam"></div>
+                </div>
+                <p class="fs-11 text-muted-2 mb-0">More branches can be added later by the shop admin.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5">
+            <div class="card mb-3">
+              <div class="card-header"><h2>Admin login</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Username</label><input class="form-control mono" placeholder="citymobile.kzm"></div>
+                <div class="mb-2"><label class="form-label">Temporary password</label><input class="form-control mono" value="Tm9p-4821"></div>
+                <p class="fs-11 text-muted-2 mb-0">The owner is asked to change this on first sign-in.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2>Plan</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Assign plan</label>
+                  <select class="form-select"><option>Basic — 1 branch</option><option selected>Pro — up to 3 branches</option><option>Advanced — unlimited branches</option></select>
+                </div>
+                <div class="mb-3"><label class="form-label">Valid until</label><input class="form-control" type="date" value="2027-09-01"></div>
+                <p class="note mb-0">Payment is collected offline. The software has no payment gateway — the super admin records the plan manually.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= BRANCHES ================= -->
+      <section class="tab-pane fade" id="view-branches" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Branches</h1><p class="fs-13 text-muted-2 mb-0">  · 2 branches</p></div>
+          <button class="btn btn-accent">+ Add branch</button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-7">
+            <div class="card">
+              <div class="card-header"><h2>All branches</h2></div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead><tr><th>Branch</th><th>Place</th><th>Open orders</th><th>Status</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Main branch</strong></td><td>Attingal</td><td class="num">33</td><td><span class="chip chip-ready">Active</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                    <tr><td><strong>Branch 2</strong></td><td>Varkala</td><td class="num">18</td><td><span class="chip chip-ready">Active</span></td><td class="text-end text-nowrap"><button class="btn btn-outline-line btn-sm">Edit</button> <button class="btn btn-soft-danger btn-sm">Delete</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-5">
+            <div class="card">
+              <div class="card-header"><h2>Add branch</h2></div>
+              <div class="card-body">
+                <div class="mb-3"><label class="form-label">Branch name</label><input class="form-control" placeholder="Branch 3"></div>
+                <div class="mb-3"><label class="form-label">Place</label><input class="form-control" placeholder="Kilimanoor"></div>
+                <div class="mb-2"><label class="form-label">Phone</label><input class="form-control mono" placeholder="0470 XXX XXXX"></div>
+                <div class="lrow"><div class="g"><div class="nm">Share products with main branch</div><div class="sb">Off means this branch keeps its own rate list</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" checked aria-label="Share products"></div></div>
+                <div class="lrow"><div class="g"><div class="nm">Separate invoice numbering</div></div><div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" aria-label="Separate numbering"></div></div>
+                <button class="btn btn-primary w-100 mt-3">Save branch</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PLANS ================= -->
+      <section class="tab-pane fade" id="view-plans" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+          <div><h1 class="page-title">Plans &amp; renewals</h1><p class="fs-13 text-muted-2 mb-0">Three default plans · payments collected offline</p></div>
+          <button class="btn btn-outline-line">Edit plans</button>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-4">
+            <div class="plan">
+              <h3 class="h6 fw-bold mb-0">Basic</h3>
+              <div class="price">₹1,200<span class="fs-13 fw-medium text-muted-2">/year</span></div>
+              <ul class="fs-12 text-muted-2 mb-0 ps-3">
+                <li>1 branch</li><li>1 staff account</li><li>Orders, billing, printouts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="plan plan-featured">
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="h6 fw-bold mb-0">Pro</h3><span class="chip chip-progress">Most shops</span>
+              </div>
+              <div class="price">₹3,000<span class="fs-13 fw-medium text-muted-2">/year</span></div>
+              <ul class="fs-12 text-muted-2 mb-0 ps-3">
+                <li>Up to 3 branches</li><li>Priority sorting</li><li>Excel export, income reports</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="plan">
+              <h3 class="h6 fw-bold mb-0">Advanced</h3>
+              <div class="price">₹5,500<span class="fs-13 fw-medium text-muted-2">/year</span></div>
+              <ul class="fs-12 text-muted-2 mb-0 ps-3">
+                <li>Unlimited branches</li><li>Daily order acceptance limit</li><li>Branch-wise financials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <h2>Subscriptions</h2>
+            <select class="form-select form-select-sm w-auto"><option>All shops</option><option>Expiring in 30 days</option><option>Expired</option></select>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead><tr><th>Shop</th><th>Plan</th><th>Branches used</th><th>Valid until</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><strong> </strong></td><td>Pro</td><td class="num">2 of 3</td><td>12 Sep 2026</td><td><span class="chip chip-pending">Renews soon</span></td><td class="text-end"><button class="btn btn-primary btn-sm">Renew</button></td></tr>
+                <tr><td><strong>City Mobile Care</strong></td><td>Basic</td><td class="num">1 of 1</td><td>3 Mar 2027</td><td><span class="chip chip-ready">Active</span></td><td class="text-end"><button class="btn btn-outline-line btn-sm">Change plan</button></td></tr>
+                <tr><td><strong>Fresh Fold Laundry</strong></td><td>Basic</td><td class="num">1 of 1</td><td>28 Aug 2026</td><td><span class="chip chip-overdue">Expired</span></td><td class="text-end"><button class="btn btn-primary btn-sm">Renew</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CUTTING SLIP ================= -->
+      <section class="tab-pane fade" id="view-slip" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3 no-print">
+          <div>
+            <div class="crumb">Print views</div>
+            <h1 class="page-title">Cutting slip</h1>
+            <p class="fs-13 text-muted-2 mb-0">Printed before cutting · earlier versions stay on file</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line" data-goto="view-orderdetail">Back to order</button>
+            <button class="btn btn-primary" data-print><i class="bi bi-printer me-1"></i>Print</button>
+          </div>
+        </div>
+
+        <div class="slip">
+          <div class="slip-head">
+            <div>
+              <h3 class="h6 fw-bold mb-0"> </h3>
+              <div class="fs-11 text-muted-2">Main Road, Attingal · 0470 262 1180</div>
+            </div>
+            <div class="slip-meta">ORDER ST-2053<br>CUT COPY · VERSION 2<br>DELIVERY 04-09-2026</div>
+          </div>
+          <table class="slip-table">
+            <tr><td class="k">Customer</td><td>Deepa Suresh</td><td class="k">Phone</td><td class="mono">85890 11245</td></tr>
+            <tr><td class="k">Item</td><td>Kurti — stitching</td><td class="k">Qty</td><td>1</td></tr>
+          </table>
+          <table class="slip-table">
+            <tr><td class="k">Length</td><td class="mono">38</td><td class="k">Shoulder</td><td class="mono">14.5</td></tr>
+            <tr><td class="k">Chest</td><td class="mono">36</td><td class="k">Waist</td><td class="mono">32</td></tr>
+            <tr><td class="k">Hip</td><td class="mono">38</td><td class="k">Sleeve</td><td class="mono">18</td></tr>
+            <tr><td class="k">Armhole</td><td class="mono">16</td><td class="k">Neck front</td><td class="mono">7</td></tr>
+          </table>
+          <p class="fs-12 mb-3"><strong>Instructions:</strong> Sleeve to be kept 2 inch loose. Customer will bring matching cloth on 3rd.</p>
+          <div class="slip-foot"><span>Taken by Jinu · 02-09-2026</span><span>Cutter signature ______________</span></div>
+        </div>
+
+        <p class="note mt-3 no-print" style="max-width:660px">All print views are black-only so thermal and laser printers both work. Brand colour is never required on paper.</p>
+      </section>
+
+      <!-- ================= CUSTOMER COPY ================= -->
+      <section class="tab-pane fade" id="view-customercopy" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3 no-print">
+          <div>
+            <div class="crumb">Print views</div>
+            <h1 class="page-title">Customer copy</h1>
+            <p class="fs-13 text-muted-2 mb-0">Handed over when the order is taken</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-wa"><i class="bi bi-whatsapp me-1"></i>Open in WhatsApp</button>
+            <button class="btn btn-primary" data-print><i class="bi bi-printer me-1"></i>Print</button>
+          </div>
+        </div>
+
+        <div class="slip slip-narrow">
+          <div class="slip-head">
+            <div>
+              <h3 class="h6 fw-bold mb-0"> </h3>
+              <div class="fs-11 text-muted-2">Attingal · 0470 262 1180</div>
+            </div>
+            <div class="slip-meta">CUSTOMER COPY<br>02-09-2026</div>
+          </div>
+          <div class="text-center mb-3">
+            <div class="fs-11 text-muted-2">Order number</div>
+            <div class="mono" style="font-size:1.625rem;font-weight:600;letter-spacing:.06em">ST-2053</div>
+          </div>
+          <table class="slip-table">
+            <tr><td class="k">Name</td><td>Deepa Suresh</td></tr>
+            <tr><td class="k">Phone</td><td class="mono">85890 11245</td></tr>
+            <tr><td class="k">Item</td><td>Kurti — stitching × 1</td></tr>
+            <tr><td class="k">Delivery</td><td><strong>04-09-2026</strong></td></tr>
+            <tr><td class="k">Total</td><td class="mono">₹820</td></tr>
+            <tr><td class="k">Advance</td><td class="mono">₹300</td></tr>
+            <tr><td class="k">Balance</td><td class="mono"><strong>₹520</strong></td></tr>
+          </table>
+          <div class="slip-foot"><span>Please bring this slip at pickup</span><span>Taken by Jinu</span></div>
+        </div>
+      </section>
+
+      <!-- ================= COMPLETION ================= -->
+      <section class="tab-pane fade" id="view-completion" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3 no-print">
+          <div>
+            <div class="crumb">Print views</div>
+            <h1 class="page-title">Completion printout</h1>
+            <p class="fs-13 text-muted-2 mb-0">Measurements and full order details, printed at handover</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line" data-goto="view-orderdetail">Back to order</button>
+            <button class="btn btn-primary" data-print><i class="bi bi-printer me-1"></i>Print</button>
+          </div>
+        </div>
+
+        <div class="slip">
+          <div class="slip-head">
+            <div>
+              <h3 class="h6 fw-bold mb-0"> </h3>
+              <div class="fs-11 text-muted-2">Main Road, Attingal · 0470 262 1180</div>
+            </div>
+            <div class="slip-meta">ORDER ST-2041<br>COMPLETION COPY<br>DELIVERED 02-09-2026</div>
+          </div>
+          <table class="slip-table">
+            <tr><td class="k">Customer</td><td>Anitha Raj</td><td class="k">Phone</td><td class="mono">98470 22114</td></tr>
+            <tr><td class="k">Taken on</td><td>28-08-2026</td><td class="k">Delivered</td><td>02-09-2026</td></tr>
+            <tr><td class="k">Taken by</td><td>Jinu</td><td class="k">Branch</td><td>Attingal</td></tr>
+          </table>
+          <table class="slip-table">
+            <tr><td class="k">Item</td><td colspan="3">Blouse — stitching × 2</td></tr>
+            <tr><td class="k">Length</td><td class="mono">15</td><td class="k">Shoulder</td><td class="mono">13.5</td></tr>
+            <tr><td class="k">Chest</td><td class="mono">34</td><td class="k">Waist</td><td class="mono">30</td></tr>
+            <tr><td class="k">Sleeve</td><td class="mono">10</td><td class="k">Armhole</td><td class="mono">15</td></tr>
+            <tr><td class="k">Neck front</td><td class="mono">6.5</td><td class="k">Neck back</td><td class="mono">7</td></tr>
+          </table>
+          <p class="fs-12 mb-3"><strong>Instructions:</strong> Piping in contrast colour on the neck. Hooks, not zip.</p>
+          <table class="slip-table">
+            <tr><td class="k">Total</td><td class="mono">₹1,200</td><td class="k">Advance</td><td class="mono">₹400</td></tr>
+            <tr><td class="k">Balance paid</td><td class="mono">₹800</td><td class="k">Measurement version</td><td class="mono">3 of 3</td></tr>
+          </table>
+          <div class="slip-foot"><span>Received in good condition — customer signature ______________</span></div>
+        </div>
+      </section>
+
+      <!-- ================= INVOICE ================= -->
+      <section class="tab-pane fade" id="view-invoice" role="tabpanel">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3 no-print">
+          <div>
+            <div class="crumb">Print views</div>
+            <h1 class="page-title">Invoice</h1>
+            <p class="fs-13 text-muted-2 mb-0">Downloadable as PDF or shared on WhatsApp</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-line">Download PDF</button>
+            <button class="btn btn-wa"><i class="bi bi-whatsapp me-1"></i>Open in WhatsApp</button>
+            <button class="btn btn-primary" data-print><i class="bi bi-printer me-1"></i>Print</button>
+          </div>
+        </div>
+
+        <div class="slip">
+          <div class="slip-head">
+            <div>
+              <h3 class="h6 fw-bold mb-0"> </h3>
+              <div class="fs-11 text-muted-2">Main Road, Attingal, Thiruvananthapuram 695101<br>0470 262 1180</div>
+            </div>
+            <div class="slip-meta">INVOICE CF/26-27/0418<br>DATE 02-09-2026<br>ORDER ST-2044</div>
+          </div>
+          <table class="slip-table">
+            <tr><td class="k">Billed to</td><td>Sujith Menon</td><td class="k">Phone</td><td class="mono">99460 71802</td></tr>
+          </table>
+          <table class="slip-table">
+            <thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th class="text-end">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Shirt — stitching</td><td class="mono">3</td><td class="mono">₹550</td><td class="text-end mono">₹1,650</td></tr>
+              <tr><td>Button set <span class="text-muted-2">(custom item)</span></td><td class="mono">1</td><td class="mono">₹150</td><td class="text-end mono">₹150</td></tr>
+              <tr><td colspan="3" class="text-end">Advance received</td><td class="text-end mono">− ₹500</td></tr>
+              <tr><td colspan="3" class="text-end fw-bold">Balance</td><td class="text-end mono fw-bold">₹1,300</td></tr>
+            </tbody>
+          </table>
+          <div class="slip-foot"><span>Paid in cash · 02-09-2026</span><span>For  </span></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================= MOBILE NAV ======================= -->
+<div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="mobileNav" style="position:fixed;height:100%" aria-label="Menu">
+  <div class="offcanvas-header">
+    <div class="d-flex align-items-center gap-2">
+      <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="11" fill="#E8A317"/><path d="M12 24c-2.5-4 1-9 5-9s6.5 3 6 6" stroke="#5A2545" stroke-width="2.3" stroke-linecap="round"/><circle cx="22.5" cy="22.5" r="2.6" stroke="#5A2545" stroke-width="2.3"/></svg>
+      <div><div class="brand-name" style="font-size:1.0625rem">Stitchy</div><div class="brand-sub"> </div></div>
+    </div>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body sidebar-scroll"><nav class="nav flex-column" id="mobileNavBody"></nav></div>
+</div>
+
+<script src="vendor/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
